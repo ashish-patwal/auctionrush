@@ -1,0 +1,30 @@
+{
+    "root": true,
+    "extends": [
+        "next/core-web-vitals",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": ["./tsconfig.json"]
+    },
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"],
+        "no-empty": "warn",
+        "no-cond-assign": ["error", "always"],
+        "for-direction": "off",
+        "@typescript-eslint/strict-boolean-expressions": [
+            2,
+            {
+                "allowString": false,
+                "allowNumber": false
+            }
+        ]
+    },
+    "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"]
+}
