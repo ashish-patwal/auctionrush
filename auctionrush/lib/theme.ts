@@ -1,4 +1,13 @@
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
+import { mode, GlobalStyleProps } from '@chakra-ui/theme-tools'
+
+const styles = {
+  global: (props: GlobalStyleProps) => ({
+    body: {
+      bg: mode('#FAFAEF', '#202023')(props)
+    }
+  })
+}
 
 const colors = {
   moe_blue: '#BCF3FC',
@@ -13,5 +22,10 @@ const colors = {
   moe_greenn: '#82FBC5'
 }
 
-const theme = extendTheme({ colors })
+const config: ThemeConfig = {
+  initialColorMode: 'dark',
+  useSystemColorMode: true
+}
+
+const theme = extendTheme({ colors, styles, config })
 export default theme
