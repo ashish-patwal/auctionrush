@@ -23,9 +23,13 @@ const colors = {
 }
 
 const config: ThemeConfig = {
-  initialColorMode: 'dark',
+  initialColorMode: 'light',
   useSystemColorMode: true
 }
 
-const theme = extendTheme({ colors, styles, config })
+const fonts = {
+  heading: "'Dancing Script', cursive"
+}
+
+const theme = extendTheme({ colors, styles, config, fonts })
 export default theme
