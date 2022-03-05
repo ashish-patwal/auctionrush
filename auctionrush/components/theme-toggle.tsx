@@ -11,6 +11,7 @@ const ThemeToggle = () => {
         style={{ display: 'inline-block' }}
         key={useColorModeValue('light', 'dark')}
         initial={{ rotate: 0, opacity: 0 }}
+        whileHover={{ scale: 1.1 }}
         animate={{ rotate: 360, opacity: 1 }}
         exit={{ rotate: 720, opacity: 0 }}
         transition={{ duration: 0.2 }}

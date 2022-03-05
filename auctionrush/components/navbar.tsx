@@ -11,13 +11,19 @@ import {
   MenuItem,
   MenuButton,
   IconButton,
-  useColorModeValue
+  useColorModeValue,
+  background
 } from '@chakra-ui/react'
 import ThemeToggle from './theme-toggle'
+import Brand from './brand'
 
 const LinkItem = ({ href, path, target, children, ...props }: AppProps) => {
   const active = path === href
   const inactiveColor = useColorModeValue('gray.800', 'whiteAlpha.900')
+  const bgGradient = useColorModeValue(
+    'linear(to-bl, moe_skin, moe_bluee)',
+    'linear(to-tr, moe_red, moe_pink)'
+  )
   return (
     <NextLink href={href} passHref>
       <Link
@@ -25,6 +31,10 @@ const LinkItem = ({ href, path, target, children, ...props }: AppProps) => {
         bg={active ? 'moe_bluee' : undefined}
         color={active ? 'moe_greenn' : inactiveColor}
         target={target}
+        _hover={{
+          bgGradient: bgGradient,
+          borderRadius: 'base'
+        }}
         {...props}
       >
         {children}
@@ -41,8 +51,10 @@ const Navbar = (props: AppProps) => {
       as='nav'
       w='100%'
       bgGradient={useColorModeValue(
-        'linear(to-r, moe_pink, moe_green)',
-        'linear(to-r, moe_blue, moe_red)'
+        // 'linear(to-r, moe_pink, moe_green)',
+        // 'linear(to-r, moe_blue, moe_red)'
+        '#ffffff40',
+        '#20202380'
       )}
       css={{ backdropFilter: 'blur(10px)' }}
       zIndex={1}
@@ -57,9 +69,7 @@ const Navbar = (props: AppProps) => {
         justify='space-between'
       >
         <Flex align='center' mr={5}>
-          <Heading as='h1' size='xl' letterSpacing={'tighter'}>
-            AuctionRush
-          </Heading>
+          <Brand />
         </Flex>
         <Stack
           direction={{ base: 'column', md: 'row-reverse' }}
