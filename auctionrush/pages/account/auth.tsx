@@ -9,8 +9,12 @@ import {
 import theme from '../../lib/theme'
 import { LockIcon } from '@chakra-ui/icons'
 import Layout from '../../layout/account'
+import { AuthContext } from '../../context/auth_context'
+import { useContext } from 'react'
 
 export default function Auth() {
+  const ctx = useContext(AuthContext)
+
   return (
     <Layout>
       <Box
@@ -27,7 +31,7 @@ export default function Auth() {
       >
         <LockIcon pb={2} fontSize='3xl' />
         <Heading px={4} display='inline-block' as='h1'>
-          Authenticate
+          Authenticate {ctx.user ? ctx.user : 'No User'}
         </Heading>
         <FormControl bg={useColorModeValue('light', 'dark')} as='form'>
           <FormLabel pt={4} htmlFor='email'>
